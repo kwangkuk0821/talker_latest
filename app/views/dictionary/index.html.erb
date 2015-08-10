@@ -7,21 +7,19 @@
     </div>
   </div>
   <div class="list">
-    <% @dics.each do |d| %>
+    <% @dics.each do |dic| %>
     <div class="message">
       <div class="contents">
         <div class="ask">
           <%= image_tag 'learn.svg', class: 'icon' %>
-          <div class="title"><%= d.ask %></div>
+          <div class="title"><%= dic.ask %></div>
         </div>
-        <div class="answer"><%= d.answer %></div>
+        <div class="answer"><%= dic.answer %></div>
         <div class="footer">
-          <div class="time"><%= d.time %></div>
+          <div class="time"><%= dic.time %></div>
           <div class="buttons">
-            <a href="/dictionary/<%= d.id %>/edit" class="button">수정</a>
-            <%= form_tag d, method: 'delete' do %>
-              <button class="button">삭제</button>
-            <% end %>
+            <%= link_to '수정', edit_dictionary_path(dic.id), class: 'button' %>
+            <%= link_to '삭제', dic, data: {confirm: '정말 삭제하시겠습니까?'}, method: 'delete', class: 'button' %>
           </div>
         </div>
       </div>
