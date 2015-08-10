@@ -1,0 +1,54 @@
+<div class="screen dictionary">
+  <div class="header">
+    <%= link_to '', :root, class: 'back-button' %>
+    <div class="title">
+      <%= image_tag 'dictionary.svg', class: 'icon' %>
+      가르친 대화 목록
+    </div>
+  </div>
+  <div class="list">
+    <% @dics.each do |d| %>
+    <div class="message">
+      <div class="contents">
+        <div class="ask">
+          <%= image_tag 'learn.svg', class: 'icon' %>
+          <div class="title"><%= d.ask %></div>
+        </div>
+        <div class="answer"><%= d.answer %></div>
+        <div class="footer">
+          <div class="time"><%= d.time %></div>
+          <div class="buttons">
+            <a href="/dictionary/<%= d.id %>/edit" class="button">수정</a>
+            <%= form_tag d, method: 'delete' do %>
+              <button class="button">삭제</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="message">
+      <div class="contents">
+        <div class="ask">
+          <%= image_tag 'learn.svg', class: 'icon' %>
+          <div class="title">피드백 말해보셈</div>
+        </div>
+        <div class="answer">
+          1. 현재 수정/삭제 아이콘 없음. 나중에 추가해야 할 듯.<br>
+          2. 한국어 요일 구현 너무 노가다인 것 같은데 요일 대신 시 분 넣는 것 어떰?<br>
+          3. 폰의 디테일을 살리면 볼륨 조절 버튼, 홈 버튼 등에 시선이 가서 그 버튼이 어떤 동작을 하지 않을까 착각할 여지가 있기 때문에 최대한 심플하게 가는 것이 좋다고 생각하는데 어떰?(내 생각이 틀렸어도 이 부분은 완전 뷰라 커리큘럼 완성 후에도 추가할 수 있는 부분이라고 예상됨.)<br>
+          4. learn, dictionary 등의 네이밍에 대하여 아직도 확신이 서지 않았는데 만약 바꾸게 된다면 css 파일 이름, 클래스 이름, 이미지 이름도 통일하는 것이 좋을 듯.<br>
+          5. 공백 차이가 있는 같은 질문에 대하여 어떻게 처리할 예정인지? 내 생각엔 같은 질문으로 판단하는 것이 좋다고 생각함. gsub, trim 같은 것들도 알려줄 겸?<br>
+          6. 당연한 이야기지만 이 내용은 읽고 삭제 ㄱ
+        </div>
+        <div class="footer">
+          <div class="time">1111년 1월 1일 11시 11분</div>
+          <div class="buttons">
+            <a href="/dictionary/1/edit" class="button">수정</a>
+            <a href="#" class="button">삭제</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

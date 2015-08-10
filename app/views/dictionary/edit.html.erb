@@ -1,0 +1,32 @@
+<div class="screen learn">
+  <div class="header">
+    <%= link_to '', :back, class: 'back-button' %>
+    <div class="title">
+      <%= image_tag 'learn.svg', class: 'icon' %>
+      대화 가르치기
+    </div>
+  </div>
+  <div class="learn-header-wrapper">
+    <div class="learn-header">
+      <%= image_tag 'pelican.svg', class: 'image' %>
+      <div class="title">대화를 다시 가르쳐주세요!</div>
+    </div>
+  </div>
+  <div class="learn-form-wrapper">
+    <%= form_tag @dic, method: 'put', class: 'learn-form' do %>
+      <div class="message user">
+        <div class="content">
+          <input type="text" name="ask" value="<%= @dic.ask  %>" placeholder="이렇게 물어보면" class="ask-input">
+        </div>
+      </div>
+      <div class="message">
+        <div class="content">
+          <textarea name="answer" placeholder="이렇게 대답해" class="answer-textarea"><%= @dic.answer %></textarea>
+        </div>
+      </div>
+      <div class="buttons">
+        <input type="submit" value="다시 가르치기" class="button">
+      </div>
+    <% end %>
+  </div>
+</div>
